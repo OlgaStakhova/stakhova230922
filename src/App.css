@@ -1,0 +1,30 @@
+.App-title {
+  padding: 15px;
+}
+.diagramma {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.fiel-title {
+  flex-basis: 40%;
+}
+
+.diagrammas-field {
+  display: flex;
+}
+
+.field-wrapper {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background-color: #d2d4d4;
+}
+
+.value-position {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: aquamarine;
+}
