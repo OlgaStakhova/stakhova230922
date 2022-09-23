@@ -54,7 +54,7 @@ function App() {
           <div className="field-wrapper">
             <div 
               className="value-position"
-              style={{width: `${item.time}%`, left: `${item.padd}%`}}>`${item.time}`</div>
+              style={{width: `${(item.time + item.padd > 100) ? 100 - item.padd : item.time}%`, left: `${item.padd}%`}}>{item.time}</div>
           </div>
 
         </div>) )}
