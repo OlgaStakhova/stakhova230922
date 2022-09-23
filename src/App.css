@@ -1,6 +1,14 @@
+.App {
+  max-width: 1440px; 
+  font-family: Roboto;
+  font-size: 16px;
+}
+
 .App-title {
   padding: 15px;
+ 
 }
+
 .diagramma {
   margin: 0 auto;
   padding: 20px;
@@ -8,6 +16,7 @@
 
 .fiel-title {
   flex-basis: 40%;
+  font-size: 20px;
 }
 
 .diagrammas-field {
@@ -27,4 +36,17 @@
   bottom: 0;
   height: 100%;
   background-color: aquamarine;
+  text-align: center;
+  line-height: 1.5
+}
+
+
+@media all and (max-width: 720px) {
+  .App {
+    font-size: 10px;
+  }
+  .fiel-title {
+    flex-basis: 40%;
+    font-size: 12px;
+  }
 }
