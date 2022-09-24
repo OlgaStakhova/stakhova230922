@@ -1,68 +1,66 @@
 import { useState } from 'react';
 import './App.css';
+import { Field } from './components/Field/Field';
+import { Value } from './types/Value';
+import { createRandom } from './helper/creatorRandom';
 
-interface Value {
-  name: string,
-  time: number,
-  padd: number,
-}
+export let controlSum: () => number;
 
-function App() {
+export const App: React.FC = () => {
+
   const [landingTime, setLandingTime] = useState(7.4);
-  const [configurator, setConfigurator] = useState(0.2);
-  const [check, setCheck] = useState(7.0);
-  const [deal, setDeal] = useState(3.8);
+  const [configuratorTime, setConfiguratorTime] = useState(0.2);
+  const [checkTime, setCheckTime] = useState(7.0);
+  const [dealTime, setDealTime] = useState(3.8);
 
 
-  const [paddLanding] = useState(0);
-  const [paddConfigurator, setPaddConfigurator] = useState(landingTime);
-  const [paddCheck, setPaddCheck] = useState<number>(7.6);
-  const [paddDeal, setPaddDeal] = useState<number>(14.6);
+  const [indentValueLanding] = useState(0);
+  const [indentConfigurator, setIndentConfigurator] = useState(landingTime);
+  const [indentCheck, setIndentCheck] = useState<number>(7.6);
+  const [indentDeal, setIndentDeal] = useState<number>(14.6);
 
-  const defaultValue: Value[] = [{ name: "Landing Page", time: landingTime, padd: paddLanding },
-  { name: "Configurator", time: configurator, padd: paddConfigurator },
-  { name: "Check-out", time: check, padd: paddCheck },
-  { name: "Deal", time: deal, padd: paddDeal }];
+  const valueField: Value[] = [
+    { name: "Landing Page", time: landingTime, indent: indentValueLanding },
+    { name: "Configurator", time: configuratorTime, indent: indentConfigurator },
+    { name: "Check-out", time: checkTime, indent: indentCheck },
+    { name: "Deal", time: dealTime, indent: indentDeal }
+  ];
 
-  setTimeout(() => handelRandom(), 31800)
+  controlSum = () => valueField.reduce((acc: number, item: Value) => acc + item.time, 0);
+
+  setTimeout(() => handelRandom(), 318000)
 
   const handelRandom = () => {
-    const landingNumber = Number(((Math.random() * 1000) / 10).toFixed(1));
+    const landingNumber = createRandom(0, 100);
     setLandingTime(landingNumber);
-    setPaddConfigurator(landingNumber);
+    setIndentConfigurator(landingNumber);
 
-    const configuratorNumber = Number(((Math.random() * 1000) / 10).toFixed(1));
-    setConfigurator(configuratorNumber);
-    const a = landingNumber + configuratorNumber
-    setPaddCheck(a);
+    const configuratorNumber = createRandom(0, (100 -landingNumber));
+    const newIndentCheck = landingNumber + configuratorNumber;
+    setConfiguratorTime(configuratorNumber);
+    setIndentCheck(newIndentCheck);
 
-    const checkNumber = Number(((Math.random() * 1000) / 10).toFixed(1));
-    setCheck(checkNumber);
-    const c = a + checkNumber;
-    setPaddDeal(c)
+    const checkNumber = createRandom(0, (100 -newIndentCheck));
+    const newIndentDeal = newIndentCheck + checkNumber;
+    setCheckTime(checkNumber);
+    setIndentDeal(newIndentDeal);
 
-    const dealNumber = Number(((Math.random() * 1000) / 10).toFixed(1));
-    setDeal(dealNumber);
+    const dealNumber = createRandom(0, (100 - newIndentDeal));
+    setDealTime(dealNumber);
   }
 
   return (
     <div className="App">
-      <h1 className='App-title'>SPENT TIME (SECONDS)</h1>
+      <h1 className='App-title' data-testid='titleApp'>SPENT TIME (SECONDS)</h1>
       <div className='diagramma'>
-        {defaultValue.map(item => (<div className="diagrammas-field" key={item.name}>
-          <h2 className="fiel-title">{item.name}</h2>
-          <div className="field-wrapper">
-            <div
-              className="value-position"
-              style={{ width: `${(item.time + item.padd > 100) ? 100 - item.padd : item.time}%`, left: `${item.padd}%` }}>{item.time}</div>
-          </div>
-
-        </div>))}
-
-        <button onClick={handelRandom}> Random </button>
+        {valueField.map(item => <Field item={item} key={item.name}/> )}
       </div>
+        <button 
+          className="button-reset" 
+          onClick={handelRandom}
+        > 
+          Random 
+        </button>
     </div>
   );
-}
-
-export default App;
+};

@@ -1,0 +1,32 @@
+.field-title {
+    flex-basis: 40%;
+    font-size: 20px;
+  }
+  
+  .diagrammas-field {
+    display: flex;
+  }
+  
+  .field-wrapper {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: #d2d4d4;
+  }
+  
+  .value-position {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: aquamarine;
+    text-align: center;
+    line-height: 1.5
+  }
+
+  @media all and (max-width: 720px) {
+    .field-title {
+      flex-basis: 40%;
+      font-size: 12px;
+    }
+  }
