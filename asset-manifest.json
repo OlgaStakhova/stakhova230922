@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/stakhova230922/static/css/main.8b0fc277.css",
+    "main.js": "/stakhova230922/static/js/main.69bc1265.js",
+    "static/js/787.2fe97922.chunk.js": "/stakhova230922/static/js/787.2fe97922.chunk.js",
+    "index.html": "/stakhova230922/index.html",
+    "main.8b0fc277.css.map": "/stakhova230922/static/css/main.8b0fc277.css.map",
+    "main.69bc1265.js.map": "/stakhova230922/static/js/main.69bc1265.js.map",
+    "787.2fe97922.chunk.js.map": "/stakhova230922/static/js/787.2fe97922.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8b0fc277.css",
+    "static/js/main.69bc1265.js"
+  ]
+}
