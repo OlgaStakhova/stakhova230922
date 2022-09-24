@@ -3,7 +3,7 @@
 The chart shows the average time a user spends on a page.
 We have a button to generate random parameters.
 
-# In this prodject i use:
+### In this prodject i use:
  - React;
  - Type script;
  - CSS;
