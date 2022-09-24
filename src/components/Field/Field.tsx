@@ -1,4 +1,5 @@
 import { Value } from '../../types/Value';
+import cn from 'classnames';
 
 interface Props {
     item: Value,
@@ -17,7 +18,11 @@ export const Field: React.FC<Props> = (props) => {
               left: `${item.indent}%` 
             }}
         >
-          {item.time}
+          <span className={cn(
+            {someRight: item.indent > 95 }
+          )}>
+            {item.time}
+          </span>
         </div>
       </div>
     </div>

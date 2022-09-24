@@ -24,6 +24,11 @@
     line-height: 1.5
   }
 
+  .someRight {
+    position: absolute;
+    right: 5px;
+  }
+
   @media all and (max-width: 720px) {
     .field-title {
       flex-basis: 40%;
